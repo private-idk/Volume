@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net4.8</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp.dll" HintPath="..\lib\Assembly-CSharp.dll" />
+    <Reference Include="LabApi.dll" HintPath="..\lib\LabApi.dll" />
+    <Reference Include="Mirror.dll" HintPath="..\lib\Mirror.dll" />
+    <Reference Include="NorthwoodLib.dll" HintPath="..\lib\NorthwoodLib.dll" />
+    <Reference Include="Pooling.dll" HintPath="..\lib\Pooling.dll" />
+    <Reference Include="UnityEngine.CoreModule.dll" HintPath="..\lib\UnityEngine.CoreModule.dll" />
+    <Reference Include="UnityEngine.dll" HintPath="..\lib\UnityEngine.dll" />
+    <Reference Include="UnityEngine.PhysicsModule.dll" HintPath="..\lib\UnityEngine.PhysicsModule.dll" />
+  </ItemGroup>
+</Project>

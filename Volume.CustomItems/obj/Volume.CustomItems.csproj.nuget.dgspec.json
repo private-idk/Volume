@@ -1,0 +1,59 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/delta/code/Volume/Volume.CustomItems/Volume.CustomItems.csproj": {}
+  },
+  "projects": {
+    "/home/delta/code/Volume/Volume.CustomItems/Volume.CustomItems.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/delta/code/Volume/Volume.CustomItems/Volume.CustomItems.csproj",
+        "projectName": "Volume.CustomItems",
+        "projectPath": "/home/delta/code/Volume/Volume.CustomItems/Volume.CustomItems.csproj",
+        "packagesPath": "/home/delta/.nuget/packages/",
+        "outputPath": "/home/delta/code/Volume/Volume.CustomItems/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/delta/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net4.8"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "targetAlias": "net4.8",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net48": {
+          "targetAlias": "net4.8",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.113/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
