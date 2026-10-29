@@ -6,5 +6,6 @@ public class TaserCustomItem : CustomItemBase
 {
     public override int Id => 0;
     public override string Name => "Тазер";
+    public override string Description => "Тазер!!!";
     public override ItemType Type => ItemType.GunCOM18;
 }

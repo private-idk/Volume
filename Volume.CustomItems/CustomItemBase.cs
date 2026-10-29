@@ -50,8 +50,11 @@ public abstract class CustomItemBase
         return true;
     }
 
+    internal static void ClearSpawnedItems() => _spawnedItems.Clear();
+
     public abstract int Id { get; }
     public abstract string Name { get; }
+    public abstract string Description { get; }
     public abstract ItemType Type { get; }
 
     /// <summary>
@@ -118,7 +121,7 @@ public abstract class CustomItemBase
     /// </summary>
     protected virtual void OnGiven(Player player)
     {
-        // Сделать хинты
+        // VolumeHint.SendHint(player, $"Подобран <color=yellow>{Name}</color>\n<color=yellow>{Description}</color>");
     }
 
     private void OnPickedUpItem(PlayerPickedUpItemEventArgs ev) => OnGiven(ev.Player);
