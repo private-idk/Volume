@@ -42,23 +42,23 @@ public class PlayerEvents : BaseEvents
         player.MaxHumeShield = 0;
     }
 
-    // Hour counting system
+    // Система подсчета времени
     private void OnPlayerJoined(PlayerJoinedEventArgs ev)
     {
-        if (!PlayTimeCountingSystem.TryGetValue(ev.Player.UserId, out _))
-            PlayTimeCountingSystem.Save(new(ev.Player.UserId));
+        if (!PlaytimeCountingSystem.TryGetValue(ev.Player.UserId, out _))
+            PlaytimeCountingSystem.Save(new(ev.Player.UserId));
 
         _joinedTime[ev.Player.UserId] = DateTime.Now.Minute;
     }
     private void OnPlayerLeft(PlayerLeftEventArgs ev)
     {
-        if (!PlayTimeCountingSystem.TryGetValue(ev.Player.UserId, out var time))
+        if (!PlaytimeCountingSystem.TryGetValue(ev.Player.UserId, out var time))
             return;
         
         time.Minutes += DateTime.Now.Minute - _joinedTime[ev.Player.UserId];
         _joinedTime.Remove(ev.Player.UserId);
 
-        PlayTimeCountingSystem.Save(time);
+        PlaytimeCountingSystem.Save(time);
     }
 
     public override void Register()

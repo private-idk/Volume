@@ -1,6 +1,10 @@
+using InventorySystem;
+using InventorySystem.Items;
+using InventorySystem.Items.Pickups;
 using LabApi.Events.Arguments.PlayerEvents;
 using LabApi.Features.Console;
 using LabApi.Features.Wrappers;
+using VolumeExtensions;
 
 namespace VolumeCustomItems;
 
@@ -103,7 +107,8 @@ public abstract class CustomItemBase
     /// </summary>
     protected virtual void RegisterEvents()
     {
-        LabApi.Events.Handlers.PlayerEvents.PickedUpItem += OnPickedUpItem;
+        InventoryExtensions.OnItemAdded += OnItemAdded;
+        LabApi.Events.Handlers.PlayerEvents.ChangedItem += OnChangedItem;
     }
 
     /// <summary>
@@ -112,7 +117,8 @@ public abstract class CustomItemBase
     /// </summary>
     protected virtual void UnregisterEvents()
     {
-        LabApi.Events.Handlers.PlayerEvents.PickedUpItem -= OnPickedUpItem;
+        InventoryExtensions.OnItemAdded -= OnItemAdded;
+        LabApi.Events.Handlers.PlayerEvents.ChangedItem -= OnChangedItem;
     }
 
     /// <summary>
@@ -121,8 +127,17 @@ public abstract class CustomItemBase
     /// </summary>
     protected virtual void OnGiven(Player player)
     {
-        // VolumeHint.SendHint(player, $"Подобран <color=yellow>{Name}</color>\n<color=yellow>{Description}</color>");
+        VolumeHints.SendHint(player, $"Подобран <color=yellow>{Name}</color>\n<color=yellow>{Description}</color>");
     }
 
-    private void OnPickedUpItem(PlayerPickedUpItemEventArgs ev) => OnGiven(ev.Player);
+    private void OnItemAdded(ReferenceHub hub, ItemBase itemBase, ItemPickupBase pickupBase) => OnGiven(Player.Get(hub));
+    private void OnChangedItem(PlayerChangedItemEventArgs ev)
+    {
+        if (ev.NewItem == null)
+            return;
+        if (!Check(ev.NewItem))
+            return;
+
+        OnGiven(ev.Player);
+    }
 }

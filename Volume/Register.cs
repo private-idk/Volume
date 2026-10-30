@@ -7,9 +7,6 @@ namespace Volume;
 
 public class Register
 {
-    /// <summary>
-    /// Registers everything (events, custom items etc.)
-    /// </summary>
     internal static void RegisterAll()
     {
         CustomItemsRegister.RegisterAll();
@@ -18,12 +15,9 @@ public class Register
         ServerSpecificManager.SetOptions();
         KeybindingBase.RegisterAll();
 
-        PlayTimeCountingSystem.InitializeDB();
+        PlaytimeCountingSystem.InitializeDB();
     }
 
-    /// <summary>
-    /// Unregisters everything (events, custom items etc.)
-    /// </summary>
     internal static void UnregisterAll()
     {
         CustomItemsRegister.UnregisterAll();
@@ -31,6 +25,6 @@ public class Register
 
         KeybindingBase.UnregisterAll();
 
-        PlayTimeCountingSystem.DisposeDB();
+        PlaytimeCountingSystem.DisposeDB();
     }
 }

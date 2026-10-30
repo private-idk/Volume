@@ -21,6 +21,8 @@
     <Reference Include="UnityEngine.PhysicsModule.dll" HintPath="..\lib\UnityEngine.PhysicsModule.dll" />
     <Reference Include="YamlDotNet.dll" HintPath="..\lib\YamlDotNet.dll" />
     <Reference Include="CommandSystem.Core.dll" HintPath="..\lib\CommandSystem.Core.dll" />
+    <Reference Include="RueI.dll" HintPath="..\lib\RueI.dll" />
+    <Reference Include="0Harmony.dll" HintPath="..\lib\0Harmony.dll" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="LiteDB" Version="5.0.21" />

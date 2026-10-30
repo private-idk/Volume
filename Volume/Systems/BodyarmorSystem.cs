@@ -8,16 +8,12 @@ public class BodyarmorSystem
     private static Dictionary<ushort, float> _armorIntegrity = new();
     public static IReadOnlyDictionary<ushort, float> ArmorIntegrity => _armorIntegrity;
 
-    /// <summary>
-    /// Clears armor pool
-    /// </summary>
     internal static void ClearIntegrity() => _armorIntegrity.Clear();
 
     /// <summary>
-    /// Adds armor to pool with max corresponding value
+    /// Добавляет броню в словарь с максимальным возможным значением
     /// </summary>
-    /// <param name="serial">Item serial</param>
-    /// <returns>Is successful</returns>
+    /// <param name="serial">Серийный номер предмета</param>
     internal static bool TryAddArmor(ushort serial)
     {
         if (!Item.TryGet(serial, out Item item))
@@ -38,11 +34,10 @@ public class BodyarmorSystem
     }
 
     /// <summary>
-    /// Changes armor integrity in pool
+    /// Изменяет прочность брони
     /// </summary>
-    /// <param name="serial">Item serial</param>
-    /// <param name="newHealth">New integrity</param>
-    /// <returns>Is successful</returns>
+    /// <param name="serial">Серийный номер предмета</param>
+    /// <param name="newHealth">Новая прочность</param>
     internal static bool TryChangeIntegrity(ushort serial, float newHealth)
     {
         if (!_armorIntegrity.ContainsKey(serial))

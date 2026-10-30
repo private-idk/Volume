@@ -15,5 +15,7 @@
     <Reference Include="UnityEngine.dll" HintPath="..\lib\UnityEngine.dll" />
     <Reference Include="UnityEngine.PhysicsModule.dll" HintPath="..\lib\UnityEngine.PhysicsModule.dll" />
     <Reference Include="CommandSystem.Core.dll" HintPath="..\lib\CommandSystem.Core.dll" />
+    <Reference Include="RueI.dll" HintPath="..\lib\RueI.dll" />
+    <Reference Include="0Harmony.dll" HintPath="..\lib\0Harmony.dll" />
   </ItemGroup>
 </Project>

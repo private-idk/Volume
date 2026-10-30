@@ -6,7 +6,7 @@ public static class InstanceManager
     private static readonly object _lock = new();
 
     /// <summary>
-    /// Simply allows you to obtain an instance
+    /// Позволяет получить экземпляр класса
     /// </summary>
     public static T GetInstance<T>() where T : class, new()
     {

@@ -27,7 +27,7 @@ public class GetPlayerPlayTimeCommand : ICommand, IUsageProvider
             return false;
         }
 
-        if (!PlayTimeCountingSystem.TryGetValue(player.UserId, out var time))
+        if (!PlaytimeCountingSystem.TryGetValue(player.UserId, out var time))
         {
             response = "Игрок впервые на сервере";
             return true;
