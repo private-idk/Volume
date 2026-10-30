@@ -125,12 +125,12 @@ public abstract class CustomItemBase
     /// Вызывается при получении предмета игроком.
     /// .base отвечает за hint'ы, получаемые игроком при получении предмета.
     /// </summary>
-    protected virtual void OnGiven(Player player)
+    protected virtual void OnGiven(Player player, Item item)
     {
         VolumeHints.SendHint(player, $"Подобран <color=yellow>{Name}</color>\n<color=yellow>{Description}</color>");
     }
 
-    private void OnItemAdded(ReferenceHub hub, ItemBase itemBase, ItemPickupBase pickupBase) => OnGiven(Player.Get(hub));
+    private void OnItemAdded(ReferenceHub hub, ItemBase itemBase, ItemPickupBase pickupBase) => OnGiven(Player.Get(hub), Item.Get(itemBase));
     private void OnChangedItem(PlayerChangedItemEventArgs ev)
     {
         if (ev.NewItem == null)
@@ -138,6 +138,6 @@ public abstract class CustomItemBase
         if (!Check(ev.NewItem))
             return;
 
-        OnGiven(ev.Player);
+        OnGiven(ev.Player, ev.NewItem);
     }
 }
