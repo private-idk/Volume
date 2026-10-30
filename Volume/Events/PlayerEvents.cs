@@ -55,7 +55,7 @@ public class PlayerEvents : BaseEvents
         if (!PlayTimeCountingSystem.TryGetValue(ev.Player.UserId, out var time))
             return;
         
-        time.Minutes += _joinedTime[ev.Player.UserId];
+        time.Minutes += DateTime.Now.Minute - _joinedTime[ev.Player.UserId];
         _joinedTime.Remove(ev.Player.UserId);
 
         PlayTimeCountingSystem.Save(time);

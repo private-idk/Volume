@@ -6,9 +6,14 @@ namespace Volume.Systems;
 
 public class PlayerTime
 {
+    [BsonId]
     public string UserId { get; set; }
     public int Minutes { get; set; }
 
+    public PlayerTime()
+    {
+    }
+    
     public PlayerTime(string userId, int time = 0)
     {
         UserId = userId;
@@ -18,11 +23,11 @@ public class PlayerTime
 
 public class PlayTimeCountingSystem
 {
-    private const string _DBFileName = "player-hours-";
+    private const string _DBFileName = "playerhours";
 
     private static LiteDatabase _DB;
-    private static string _DBDirectoryPath = Path.Combine(PathManager.Configs.FullName, "time-count");
-    private static string _DBPath = Path.Combine(_DBDirectoryPath, $"{_DBFileName}{Server.Port}.db");
+    private static string _DBDirectoryPath = Path.Combine(PathManager.Configs.FullName, "time_count");
+    private static string _DBPath = Path.Combine(_DBDirectoryPath, _DBFileName);
 
     private static ILiteCollection<PlayerTime> _collection;
 
@@ -42,7 +47,7 @@ public class PlayTimeCountingSystem
         
         _DB = new(_DBPath);
 
-        _collection = _DB.GetCollection<PlayerTime>($"{_DBFileName}{Server.Port}.db");
+        _collection = _DB.GetCollection<PlayerTime>(_DBFileName);
     }
 
     internal static void DisposeDB()
