@@ -1,5 +1,6 @@
 using Volume.CustomItems;
 using Volume.Events;
+using Volume.ServerSpecific;
 
 namespace Volume;
 
@@ -12,6 +13,9 @@ public class Register
     {
         CustomItemsRegister.RegisterAll();
         BaseEvents.RegisterAll();
+
+        ServerSpecificManager.SetOptions();
+        KeybindingBase.RegisterAll();
     }
 
     /// <summary>
@@ -21,5 +25,7 @@ public class Register
     {
         CustomItemsRegister.UnregisterAll();
         BaseEvents.UnregisterAll();
+
+        KeybindingBase.UnregisterAll();
     }
 }
