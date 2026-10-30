@@ -1,6 +1,7 @@
 using Volume.CustomItems;
 using Volume.Events;
 using Volume.ServerSpecific;
+using Volume.Systems;
 
 namespace Volume;
 
@@ -16,6 +17,8 @@ public class Register
 
         ServerSpecificManager.SetOptions();
         KeybindingBase.RegisterAll();
+
+        PlayTimeCountingSystem.InitializeDB();
     }
 
     /// <summary>
@@ -27,5 +30,7 @@ public class Register
         BaseEvents.UnregisterAll();
 
         KeybindingBase.UnregisterAll();
+
+        PlayTimeCountingSystem.DisposeDB();
     }
 }

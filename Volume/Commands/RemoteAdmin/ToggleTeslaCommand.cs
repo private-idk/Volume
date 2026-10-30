@@ -5,10 +5,6 @@ namespace Volume.Commands.RemoteAdmin;
 [CommandHandler(typeof(RemoteAdminCommandHandler))]
 public class ToggleTeslaCommand : ICommand
 {
-    /// <summary>
-    /// False - выключено
-    /// True - включено
-    /// </summary>
     public static bool TeslaGatesCondition { get; private set; } = false;
 
     public string Command => "tesla";
